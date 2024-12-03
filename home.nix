@@ -54,7 +54,6 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    # Note that this is a yaml file for the sole purpose of allowing comments.
     ".config/zed/settings.json".source = ./dots/zed.json;
     ".config/jj/config.toml".source = ./dots/jujutsu.toml;
   };
