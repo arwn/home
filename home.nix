@@ -55,7 +55,8 @@
     # '';
 
     # Note that this is a yaml file for the sole purpose of allowing comments.
-    ".config/zed/settings.json".source = ./zed.yaml;
+    ".config/zed/settings.json".source = ./dots/zed.json;
+    ".config/jj/config.toml".source = ./dots/jujutsu.toml;
   };
 
   # Home Manager can also manage your environment variables through
@@ -75,7 +76,7 @@
   #  /etc/profiles/per-user/aren.windham/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    JJ_CONFIG="$HOME/.config/jj/config.toml";
   };
 
   programs.fish = {

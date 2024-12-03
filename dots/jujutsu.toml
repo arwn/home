@@ -1,0 +1,6 @@
+[user]
+email = "windham.aren@protonmail.com"
+name = "Aren Windham"
+
+[ui]
+default-command = "log"
