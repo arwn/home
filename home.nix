@@ -26,6 +26,11 @@
     pkgs.nixd
     pkgs.nil
 
+    pkgs.typescript-language-server
+
+    # Other stuff
+    pkgs.grex
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -85,8 +90,8 @@
     '';
     shellAliases = {
       e = "vim";
-  		eee = "sed 's/[a-z]/e/g; s/[A-Z]/E/g; s/[0-9]/0/g'";
-  		ls = "ls -F";
+      eee = "sed 's/[a-z]/e/g; s/[A-Z]/E/g; s/[0-9]/0/g'";
+      ls = "ls -F";
     };
     plugins = [
       # Using this package in a standalone home-manager installation is easier
@@ -105,6 +110,37 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    viAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      (nvim-treesitter.withPlugins(p: [ p.bash p.json p.yaml p.markdown p.nix ]))
+      conform-nvim
+      modus-themes-nvim
+    ];
+    extraLuaConfig = '' 
+    vim.wo.relativenumber = true
+    vim.wo.number = true
+    vim.opt.smartindent = true
+    vim.opt.termguicolors = true
+    vim.opt.scrolloff = 10
+    vim.cmd('colorscheme modus_operandi')
+
+    require("conform").setup({
+      formatters_by_ft = {
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+      },
+      format_on_save = true,
+    })
+
+    local lsp = require('lspconfig')
+    lsp.ts_ls.setup{}
+    '';
   };
 
   # Let Home Manager install and manage itself.
