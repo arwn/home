@@ -21,6 +21,7 @@
     # Packages I need everywhere.
     pkgs.jujutsu
     pkgs.ripgrep
+    pkgs.helix
 
     # Lsp for editing this file.
     pkgs.nixd
@@ -61,7 +62,8 @@
 
     ".config/zed/settings.json".source = ./dots/zed.json;
     ".config/jj/config.toml".source = ./dots/jujutsu.toml;
-    ".config/ghostty/config/".source =  ./dots/ghostty.toml;
+    ".config/ghostty/config".source =  ./dots/ghostty.toml;
+    ".config/helix/config.toml".source = ./dots/helix.toml;
   };
 
   # Home Manager can also manage your environment variables through
@@ -90,7 +92,7 @@
       set fish_greeting # Disable greeting.
     '';
     shellAliases = {
-      e = "vim";
+      e = "hx";
       eee = "sed 's/[a-z]/e/g; s/[A-Z]/E/g; s/[0-9]/0/g'";
       ls = "ls -F";
     };
