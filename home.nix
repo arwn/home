@@ -121,6 +121,7 @@
       (nvim-treesitter.withPlugins(p: [ p.bash p.json p.yaml p.markdown p.nix ]))
       conform-nvim
       modus-themes-nvim
+      fzf-vim
     ];
     extraLuaConfig = '' 
     vim.wo.relativenumber = true
@@ -129,6 +130,14 @@
     vim.opt.termguicolors = true
     vim.opt.scrolloff = 10
     vim.cmd('colorscheme modus_operandi')
+    vim.opt.clipboard = unnamedplus
+
+
+    -- keybinds
+    vim.g.mapleader = ' '
+    vim.api.nvim_set_keymap('n', '<Leader>ff', ':GFiles<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<Leader>fg', ':Rg<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<Leader>fb', ':Buffers<CR>', { noremap = true, silent = true })
 
     require("conform").setup({
       formatters_by_ft = {
