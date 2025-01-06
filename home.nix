@@ -61,6 +61,7 @@
 
     ".config/zed/settings.json".source = ./dots/zed.json;
     ".config/jj/config.toml".source = ./dots/jujutsu.toml;
+    ".config/ghostty/config/".source =  ./dots/ghostty.toml;
   };
 
   # Home Manager can also manage your environment variables through
