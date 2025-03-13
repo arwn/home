@@ -1,4 +1,4 @@
 font-family = "Iosevka Term"
 font-size = "14"
-theme = "borland"
+theme = "GruvboxLight"
 command = "/Users/aren.windham/.nix-profile/bin/fish"

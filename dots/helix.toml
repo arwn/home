@@ -2,6 +2,7 @@ theme = "base16_transparent"
 
 [editor]
 line-number = "relative"
+cursorline = true
 
 [editor.cursor-shape]
 insert = "bar"
