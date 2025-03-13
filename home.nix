@@ -22,6 +22,7 @@
     pkgs.jujutsu
     pkgs.ripgrep
     pkgs.helix
+    pkgs.tmux
 
     # Lsp for editing this file.
     pkgs.nixd
@@ -64,6 +65,7 @@
     ".config/jj/config.toml".source = ./dots/jujutsu.toml;
     ".config/ghostty/config".source =  ./dots/ghostty.toml;
     ".config/helix/config.toml".source = ./dots/helix.toml;
+    ".config/tmux/tmux.conf".source = ./dots/tmux.conf;
   };
 
   # Home Manager can also manage your environment variables through
