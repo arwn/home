@@ -1,4 +1,4 @@
 font-family = "Iosevka Term"
-font-size = "14"
+font-size = "16"
 theme = "GruvboxLight"
-command = "/Users/aren.windham/.nix-profile/bin/fish"
+command = "~/.nix-profile/bin/fish"

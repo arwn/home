@@ -3,8 +3,6 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "aren.windham";
-  home.homeDirectory = "/Users/aren.windham";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -61,11 +59,11 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    ".config/zed/settings.json".source = ./dots/zed.json;
-    ".config/jj/config.toml".source = ./dots/jujutsu.toml;
-    ".config/ghostty/config".source =  ./dots/ghostty.toml;
-    ".config/helix/config.toml".source = ./dots/helix.toml;
-    ".config/tmux/tmux.conf".source = ./dots/tmux.conf;
+    ".config/zed/settings.json".source = ../dots/zed.json;
+    ".config/jj/config.toml".source = ../dots/jujutsu.toml;
+    ".config/ghostty/config".source =  ../dots/ghostty.toml;
+    ".config/helix/config.toml".source = ../dots/helix.toml;
+    ".config/tmux/tmux.conf".source = ../dots/tmux.conf;
   };
 
   # Home Manager can also manage your environment variables through
@@ -128,7 +126,7 @@
       modus-themes-nvim
       fzf-vim
     ];
-    extraLuaConfig = '' 
+    extraLuaConfig = ''
     vim.wo.relativenumber = true
     vim.wo.number = true
     vim.opt.smartindent = true
