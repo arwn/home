@@ -18,6 +18,7 @@
   home.packages = [
     # Packages I need everywhere.
     pkgs.jujutsu
+    pkgs.git
     pkgs.ripgrep
     pkgs.helix
     pkgs.tmux
