@@ -1,4 +1,5 @@
 font-family = Iosevka Term
 font-size = 16
-theme = light:3024 Day, dark:3024 Night
+theme = light:Primary, dark:3024 Night
 command = ~/.nix-profile/bin/fish
+minimum-contrast = 3
