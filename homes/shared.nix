@@ -111,50 +111,10 @@
     ];
   };
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
-
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-    viAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      (nvim-treesitter.withPlugins(p: [ p.bash p.json p.yaml p.markdown p.nix ]))
-      conform-nvim
-      modus-themes-nvim
-      fzf-vim
-    ];
-    extraLuaConfig = ''
-    vim.wo.relativenumber = true
-    vim.wo.number = true
-    vim.opt.smartindent = true
-    vim.opt.termguicolors = true
-    vim.opt.scrolloff = 10
-    vim.cmd('colorscheme modus_operandi')
-    vim.opt.clipboard = unnamedplus
-
-
-    -- keybinds
-    vim.g.mapleader = ' '
-    vim.api.nvim_set_keymap('n', '<Leader>ff', ':GFiles<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<Leader>fg', ':Rg<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', '<Leader>fb', ':Buffers<CR>', { noremap = true, silent = true })
-
-    require("conform").setup({
-      formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-      },
-      format_on_save = true,
-    })
-
-    local lsp = require('lspconfig')
-    lsp.ts_ls.setup{}
-    '';
-  };
+  #programs.direnv = {
+  #  enable = true;
+  #  nix-direnv.enable = true;
+  #};
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

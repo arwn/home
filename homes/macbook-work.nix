@@ -13,7 +13,7 @@
   programs.fish.shellInit = ''
     set -gx NX_TUI false
 
-    set -U fish_user_paths $fish_user_paths /Users/aren.windham/.local/bin
+    set -U fish_user_paths $fish_user_paths /Users/aren.windham/.local/bin /Users/aren.windham/go/bin
     
     set -gx TELEPORT_PROXY transporter.ic-ops.com:443
     set -gx TELEPORT_CLUSTER transporter.ic-ops.com
