@@ -15,6 +15,11 @@
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgsWork = import nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [ "acli" ];
+      };
     in {
       homeConfigurations."arwn" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -22,7 +27,7 @@
       };
 
       homeConfigurations."aren.windham" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = pkgsWork;
         modules = [ ./homes/macbook-work.nix ];
       };
     };

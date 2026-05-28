@@ -8,9 +8,12 @@
 
   home.packages = lib.mkAfter [
     # pkgs.mise
+    pkgs.acli
   ];
 
   programs.fish.shellInit = ''
+    alias a cursor-agent
+
     set -gx NX_TUI false
 
     set -U fish_user_paths $fish_user_paths /Users/aren.windham/.local/bin /Users/aren.windham/go/bin
