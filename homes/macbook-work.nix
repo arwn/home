@@ -7,7 +7,7 @@
   home.homeDirectory = "/Users/aren.windham";
 
   home.packages = lib.mkAfter [
-    # pkgs.mise
+    pkgs.mise
     pkgs.acli
   ];
 
