@@ -7,8 +7,7 @@
   home.homeDirectory = "/Users/aren.windham";
 
   home.packages = lib.mkAfter [
-    pkgs.mise
-    pkgs.acli
+    # pkgs.mise
   ];
 
   programs.fish.shellInit = ''
@@ -30,6 +29,6 @@
     
     set -gx PATH /Users/aren.windham/.local/bin /Users/aren.windham/.nix-profile/bin /nix/var/nix/profiles/default/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin '/Applications/VMware Fusion.app/Contents/Public' /usr/local/munki /Applications/iTerm.app/Contents/Resources/utilities
    
-    /Users/aren.windham/.local/bin/mise activate fish | source
+    mise activate fish | source
   '';
 }
