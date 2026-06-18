@@ -13,22 +13,29 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgsWork = import nixpkgs {
-        inherit system;
+      macSystem = "aarch64-darwin";
+      linuxSystem = "x86_64-linux";
+      pkgsMac = nixpkgs.legacyPackages.${macSystem};
+      pkgsMacWork = import nixpkgs {
+        system = macSystem;
         config.allowUnfreePredicate = pkg:
           builtins.elem (nixpkgs.lib.getName pkg) [ "acli" ];
       };
+      pkgsLinux = nixpkgs.legacyPackages.${linuxSystem};
     in {
       homeConfigurations."arwn" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = pkgsMac;
         modules = [ ./homes/macbook.nix ];
       };
 
       homeConfigurations."aren.windham" = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgsWork;
+        pkgs = pkgsMacWork;
         modules = [ ./homes/macbook-work.nix ];
+      };
+
+      homeConfigurations."a" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgsLinux;
+        modules = [ ./homes/linux-a.nix ];
       };
     };
 }
