@@ -13,6 +13,8 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  imports = [ ../pkgs/nvim ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -20,7 +22,6 @@
     pkgs.jujutsu
     pkgs.git
     pkgs.ripgrep
-    pkgs.helix
     pkgs.tmux
 
     # Lsp for editing this file.
@@ -65,7 +66,6 @@
     ".config/zed/settings.json".source = ../dots/zed.json;
     ".config/jj/config.toml".source = ../dots/jujutsu.toml;
     ".config/ghostty/config".source =  ../dots/ghostty.toml;
-    ".config/helix/config.toml".source = ../dots/helix.toml;
     ".config/tmux/tmux.conf".source = ../dots/tmux.conf;
   };
 
@@ -95,7 +95,7 @@
       set fish_greeting # Disable greeting.
     '';
     shellAliases = {
-      e = "hx";
+      e = "nvim";
       eee = "sed 's/[a-z]/e/g; s/[A-Z]/E/g; s/[0-9]/0/g'";
       ls = "ls -F";
     };
