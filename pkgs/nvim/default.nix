@@ -7,6 +7,7 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+
     opts = {
       number = true;
       relativenumber = true;

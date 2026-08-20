@@ -3,11 +3,14 @@
 {
   imports = [ ./shared.nix ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "acli" ];
+
   home.username = "aren.windham";
   home.homeDirectory = "/Users/aren.windham";
 
   home.packages = lib.mkAfter [
-    # pkgs.mise
+    pkgs.acli
   ];
 
   programs.fish.shellInit = ''
