@@ -21,6 +21,13 @@
       termguicolors = true;
     };
 
+    diagnostic.settings = {
+      virtual_text = true;
+      signs = true;
+      underline = true;
+      update_in_insert = false;
+    };
+
     plugins = {
       telescope.enable = true; # Fuzzy finder
       treesitter.enable = true; # Syntax highlighting
